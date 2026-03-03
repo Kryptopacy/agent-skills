@@ -79,7 +79,13 @@ A meta-skill directory — maps any task to the right specialist skill before yo
 
 ## Agent Protocol
 
-1. **Read this router first** before any implementation task.
+1. **Check for project context first.** Before routing, look for a project memory file in the project root and read it for stack-specific rules that override generic skill guidance. Check for any of these (whichever exists):
+   - `GEMINI.md` — Gemini / Antigravity
+   - `CLAUDE.md` — Claude Code
+   - `AGENTS.md` — OpenAI Codex
+   - `.cursorrules` — Cursor
+   - `.github/copilot-instructions.md` — GitHub Copilot
+   - `CONVENTIONS.md` — Aider and others
 2. **Match your task** to the domain table below.
 3. **Load the skill** listed (`view_file` the SKILL.md path shown).
 4. **Follow that skill's instructions** for the task.
