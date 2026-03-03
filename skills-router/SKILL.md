@@ -93,12 +93,12 @@ A meta-skill directory — maps any task to the right specialist skill before yo
    - **Local Workspace:** `./.agents/skills/<skill-name>/SKILL.md` or `./.cursor/skills/<skill-name>/SKILL.md`
 4. **If not found** in any of these paths, run the install command from the table (if one exists), **appending `-g`** to ensure it installs to the central `.agents` directory. Let the installation finish.
    - **Self-Healing Protocol:** If the install command explicitly fails (e.g., repository not found), immediately run `npx skills find <skill-name>` to get the updated, verified command. Use it to install, and then update the table in this `SKILL.md` file with the corrected link permanently.
-5. **Load the skill** using the `view_file` tool on the exact absolute path to `SKILL.md`.
+5. **Load the skill** using the `view_file` tool on the exact absolute path to `SKILL.md`. Once loaded, you MUST output `"Loaded specialist skill: [name]"` in your chat response so the user sees the routing succeeded.
 6. **Follow that skill's instructions** for the task.
-7. **Before claiming done**, load `verification-before-completion`.
+7. **Before claiming done**, load the `verification-before-completion` skill (find it in the tables below and follow steps 3-5 to load it).
 8. **If you used a skill not listed here**, add it to the **Pending Review** section at the bottom — never to the live tables.
 
-> If no skill matches, you MUST append a proposed skill name and task description to the **Still Needed** section of this document, then proceed with built-in knowledge.
+> If no skill matches, you MUST append a proposed skill name and task description as a bullet point to the **Still Needed** section of this document, then proceed with built-in knowledge.
 
 ---
 
@@ -270,7 +270,15 @@ These rules apply regardless of which skill you load:
 
 ## Still Needed (run `npx skills find <name>` to resolve)
 
-`superdesign`, `typescript-expert`, `nestjs-expert`, `solana-vulnerability-scanner`, `paywall-upgrade-cro`, `signup-flow-cro`, `pricing-strategy`, `launch-strategy`, `game-changing-features`
+- `superdesign`
+- `typescript-expert`
+- `nestjs-expert`
+- `solana-vulnerability-scanner`
+- `paywall-upgrade-cro`
+- `signup-flow-cro`
+- `pricing-strategy`
+- `launch-strategy`
+- `game-changing-features`
 
 ---
 
@@ -296,4 +304,4 @@ Before promoting any pending entry:
 
 - **Verified** `npx skills add https://github.com/...` commands were confirmed on skills.sh
 - **`npx skills find <name>`** searches skills.sh live and returns the confirmed install command
-- To install globally: append `-g` to any `npx skills add` command
+- **IMPORTANT:** Always append `-g` to the `npx skills add` commands listed in the tables above when executing them to ensure central installation.
