@@ -91,13 +91,14 @@ A meta-skill directory — maps any task to the right specialist skill before yo
    - **Central Global:** `<USER_HOME_DIR>/.agents/skills/<skill-name>/SKILL.md` (Check here first, this is the source of truth)
    - **Agent-Specific Global:** `<USER_HOME_DIR>/<YOUR_AGENT_DIR>/skills/<skill-name>/SKILL.md` (e.g. `.cursor/skills`, `.gemini/antigravity/skills`, `.cline/skills`)
    - **Local Workspace:** `./.agents/skills/<skill-name>/SKILL.md` or `./.cursor/skills/<skill-name>/SKILL.md`
-4. **If not found** in any of these paths, run the install command from the table (if one exists). Let the installation finish.
+4. **If not found** in any of these paths, run the install command from the table (if one exists), **appending `-g`** to ensure it installs to the central `.agents` directory. Let the installation finish.
+   - **Self-Healing Protocol:** If the install command explicitly fails (e.g., repository not found), immediately run `npx skills find <skill-name>` to get the updated, verified command. Use it to install, and then update the table in this `SKILL.md` file with the corrected link permanently.
 5. **Load the skill** using the `view_file` tool on the exact absolute path to `SKILL.md`.
 6. **Follow that skill's instructions** for the task.
 7. **Before claiming done**, load `verification-before-completion`.
-8. **If you used a skill not listed here**, add it to the **Pending Review** section at the bottom — never live tables.
+8. **If you used a skill not listed here**, add it to the **Pending Review** section at the bottom — never to the live tables.
 
-> If no skill matches, proceed with built-in knowledge and note the gap.
+> If no skill matches, you MUST append a proposed skill name and task description to the **Still Needed** section of this document, then proceed with built-in knowledge.
 
 ---
 
