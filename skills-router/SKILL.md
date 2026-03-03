@@ -88,9 +88,9 @@ A meta-skill directory — maps any task to the right specialist skill before yo
    - `CONVENTIONS.md` — Aider and others
 2. **Match your task** to the domain table below.
 3. **Find the skill's `SKILL.md` file.** Skills may be installed locally or globally. Before concluding a skill is missing, you must check the following locations using proper absolute paths (resolve the user's home directory programmatically before using file-reading tools; do NOT pass literal `~/` or `%USERPROFILE%` strings to tools like `view_file`):
-   - **Global (Windows):** `<USER_HOME_DIR>\.gemini\antigravity\skills\<skill-name>\SKILL.md`
-   - **Global (Mac/Linux):** `<USER_HOME_DIR>/.gemini/antigravity/skills/<skill-name>/SKILL.md`
-   - **Local:** `./.gemini/antigravity/skills/<skill-name>/SKILL.md`
+   - **Central Global:** `<USER_HOME_DIR>/.agents/skills/<skill-name>/SKILL.md` (Check here first, this is the source of truth)
+   - **Agent-Specific Global:** `<USER_HOME_DIR>/<YOUR_AGENT_DIR>/skills/<skill-name>/SKILL.md` (e.g. `.cursor/skills`, `.gemini/antigravity/skills`, `.cline/skills`)
+   - **Local Workspace:** `./.agents/skills/<skill-name>/SKILL.md` or `./.cursor/skills/<skill-name>/SKILL.md`
 4. **If not found** in any of these paths, run the install command from the table (if one exists). Let the installation finish.
 5. **Load the skill** using the `view_file` tool on the exact absolute path to `SKILL.md`.
 6. **Follow that skill's instructions** for the task.
