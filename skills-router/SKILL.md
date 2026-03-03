@@ -87,10 +87,15 @@ A meta-skill directory — maps any task to the right specialist skill before yo
    - `.github/copilot-instructions.md` — GitHub Copilot
    - `CONVENTIONS.md` — Aider and others
 2. **Match your task** to the domain table below.
-3. **Load the skill** listed (`view_file` the SKILL.md path shown).
-4. **Follow that skill's instructions** for the task.
-5. **Before claiming done**, load `verification-before-completion`.
-6. **If you used a skill not listed here**, add it to the **Pending Review** section at the bottom — never to the live tables.
+3. **Find the skill's `SKILL.md` file.** Skills may be installed locally or globally. First, search these paths:
+   - **Global (Windows):** `%USERPROFILE%\.gemini\antigravity\skills\<skill-name>\SKILL.md`
+   - **Global (Mac/Linux):** `~/.gemini/antigravity/skills/<skill-name>/SKILL.md`
+   - **Local:** `./.gemini/antigravity/skills/<skill-name>/SKILL.md`
+4. **If not found,** run the install command from the table (if one exists).
+5. **Load the skill** using the `view_file` tool on the exact absolute path to `SKILL.md`.
+6. **Follow that skill's instructions** for the task.
+7. **Before claiming done**, load `verification-before-completion`.
+8. **If you used a skill not listed here**, add it to the **Pending Review** section at the bottom — never live tables.
 
 > If no skill matches, proceed with built-in knowledge and note the gap.
 
